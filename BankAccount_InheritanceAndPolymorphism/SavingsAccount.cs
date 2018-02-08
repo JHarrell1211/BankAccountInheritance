@@ -26,19 +26,19 @@ namespace BankAccount_InheritanceAndPolymorphism
 
 
         //Methods
-        public override string AccType()
+        public override string PrintAccType()
         {
             return AccountType;
         }
 
-        public override int AccountNum()
+        public override int PrintAccountNum()
         {
             return AccountNumber;
         }
 
-        public override void Balance()
+        public override void PrintBalance()
         {
-            base.Balance();
+            base.PrintBalance();
         }
 
     }

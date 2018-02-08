@@ -43,14 +43,15 @@ namespace BankAccount_InheritanceAndPolymorphism
             this.accountNumber = accountNumber;
             this.accountType = accountType;
         }
-        public virtual void Balance()
+        //Methods
+        public virtual void PrintBalance()
         {
             Console.WriteLine("Your account balance is " + accountBalance);
         }
 
-        public abstract int AccountNum();
+        public abstract int PrintAccountNum();
 
-        public abstract string AccType();
+        public abstract string PrintAccType();
 
     }
 }

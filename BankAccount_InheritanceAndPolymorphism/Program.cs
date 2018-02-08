@@ -41,8 +41,8 @@ namespace BankAccount_InheritanceAndPolymorphism
                 if (userInput == 1) // user info
                 {
                     Console.WriteLine(userName);
-                    Console.WriteLine("Checking Account Number: " + checkOne.AccountNum());
-                    Console.WriteLine("Savings Account Number: " + savOne.AccountNum() + "\n");
+                    Console.WriteLine(checkOne.PrintAccType() + " Account Number: " + checkOne.PrintAccountNum());
+                    Console.WriteLine(savOne.PrintAccType() + "Account Number: " + savOne.PrintAccountNum() + "\n");
                 }
 
                 if (userInput == 2) //Check Account Balance
@@ -57,7 +57,8 @@ namespace BankAccount_InheritanceAndPolymorphism
                     {
                         if (clientOne.CheckingStatus == true)
                         {
-                            checkOne.Balance();
+                            checkOne.PrintBalance();
+                            Console.WriteLine("");
                         }
                         else
                         {
@@ -69,7 +70,8 @@ namespace BankAccount_InheritanceAndPolymorphism
                     {
                         if (clientOne.SavingsStatus == true)
                         {
-                            savOne.Balance();
+                            savOne.PrintBalance();
+                            Console.WriteLine("");
                         }
                         else
                         {
@@ -100,7 +102,7 @@ namespace BankAccount_InheritanceAndPolymorphism
                             }
 
                             checkOne.AccountBalance += deposit;
-                            checkOne.Balance();
+                            checkOne.PrintBalance();
                             Console.WriteLine("");
                         }
                         else
@@ -123,7 +125,7 @@ namespace BankAccount_InheritanceAndPolymorphism
                             }
 
                             savOne.AccountBalance += deposit;
-                            savOne.Balance();
+                            savOne.PrintBalance();
                             Console.WriteLine("");
                         }
 
@@ -157,7 +159,7 @@ namespace BankAccount_InheritanceAndPolymorphism
                             }
                             
                             checkOne.AccountBalance -= withdrawl;
-                            checkOne.Balance();
+                            checkOne.PrintBalance();
                             Console.WriteLine("");
                         }
                         else
@@ -187,7 +189,7 @@ namespace BankAccount_InheritanceAndPolymorphism
                             }
 
                             savOne.AccountBalance -= withdrawl;
-                            savOne.Balance();
+                            savOne.PrintBalance();
                             Console.WriteLine("");
                         }
 
