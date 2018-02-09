@@ -12,15 +12,13 @@ namespace BankAccount_InheritanceAndPolymorphism
         {
             int userInput = 0;
             string userChoice;
-            double deposit = 0;
-            double withdrawl = 0;
             string userName = " ";
 
             Client clientOne = new Client(userName, true, true);
             Console.WriteLine("To Login, Please enter your first and last name");
             userName = Console.ReadLine().ToUpper();
             Console.WriteLine("Hello " + userName + "\n");
-            SavingsAccount savOne = new SavingsAccount(100);
+            SavingsAccount savOne = new SavingsAccount();
             CheckingAccount checkOne = new CheckingAccount();
 
             while (userInput != 5)
@@ -93,15 +91,17 @@ namespace BankAccount_InheritanceAndPolymorphism
                         if (clientOne.CheckingStatus == true)
                         {
                             Console.WriteLine("Enter Deposit Amount");
-                            deposit = int.Parse(Console.ReadLine());
+                            //deposit = int.Parse(Console.ReadLine());
+                            checkOne.Deposit = int.Parse(Console.ReadLine());
 
-                            while (deposit < 0)
+                            while (checkOne.Deposit < 0)
                             {
                                 Console.WriteLine("Error!! Enter Deposit Amount: ");
-                                deposit = int.Parse(Console.ReadLine());
+                                checkOne.Deposit = int.Parse(Console.ReadLine());
                             }
 
-                            checkOne.AccountBalance += deposit;
+                            //checkOne.AccountBalance += deposit;
+                            checkOne.DepositBalance();
                             checkOne.PrintBalance();
                             Console.WriteLine("");
                         }
@@ -116,15 +116,17 @@ namespace BankAccount_InheritanceAndPolymorphism
                         if (clientOne.SavingsStatus == true)
                         {
                             Console.WriteLine("Enter Deposit Amount");
-                            deposit = int.Parse(Console.ReadLine());
+                            //deposit = int.Parse(Console.ReadLine());
+                            savOne.Deposit = int.Parse(Console.ReadLine());
 
-                            while (deposit < 0)
+                            while (savOne.Deposit < 0)
                             {
                                 Console.WriteLine("Error!! Enter Deposit Amount: ");
-                                deposit = int.Parse(Console.ReadLine());
+                                savOne.Deposit = int.Parse(Console.ReadLine());
                             }
 
-                            savOne.AccountBalance += deposit;
+                            //savOne.AccountBalance += deposit;
+                            savOne.DepositBalance();
                             savOne.PrintBalance();
                             Console.WriteLine("");
                         }
@@ -149,16 +151,18 @@ namespace BankAccount_InheritanceAndPolymorphism
                         if (clientOne.CheckingStatus == true)
                         {
                             Console.WriteLine("Enter Withdrawl Amount");
-                            withdrawl = int.Parse(Console.ReadLine());
+                            //withdrawl = int.Parse(Console.ReadLine());
+                            checkOne.Withdraw = int.Parse(Console.ReadLine());
 
-                            while (withdrawl > checkOne.AccountBalance)
+                            while (checkOne.Withdraw > checkOne.AccountBalance)
                             {
                                 Console.WriteLine("Insufficient Funds: Your Account Balance is: " + checkOne.AccountBalance);
                                 Console.WriteLine("Enter Withdrawl Amount: ");
-                                withdrawl = int.Parse(Console.ReadLine());
+                                checkOne.Withdraw = int.Parse(Console.ReadLine());
                             }
-                            
-                            checkOne.AccountBalance -= withdrawl;
+
+                            //checkOne.AccountBalance -= withdrawl;
+                            checkOne.WithdrawBalance();
                             checkOne.PrintBalance();
                             Console.WriteLine("");
                         }
@@ -173,22 +177,26 @@ namespace BankAccount_InheritanceAndPolymorphism
                         if (clientOne.SavingsStatus == true)
                         {
                             Console.WriteLine("Enter Withdrawl Amount");
-                            withdrawl = int.Parse(Console.ReadLine());
+                            savOne.Withdraw = int.Parse(Console.ReadLine());
 
-                            while (withdrawl > savOne.AccountBalance)
+                            while (savOne.Withdraw > savOne.AccountBalance)
                             {
                                 Console.WriteLine("Insufficient Funds: Your Account Balance is: " + savOne.AccountBalance);
                                 Console.WriteLine("Enter Withdrawl Amount: ");
-                                withdrawl = int.Parse(Console.ReadLine());
+                                //withdrawl = int.Parse(Console.ReadLine());
+                                savOne.Withdraw = int.Parse(Console.ReadLine());
                             }
-                            while ((savOne.AccountBalance - withdrawl) < savOne.MinBalance)
+                       
+                            while ((savOne.AccountBalance - savOne.Withdraw) < savOne.MinBalance)
                             {
                                 Console.WriteLine("Account balance cannot drop below " + savOne.MinBalance);
                                 Console.WriteLine("Enter Withdrawl Amount: ");
-                                withdrawl = int.Parse(Console.ReadLine());
+                                //withdrawl = int.Parse(Console.ReadLine());
+                                savOne.Withdraw = int.Parse(Console.ReadLine());
                             }
 
-                            savOne.AccountBalance -= withdrawl;
+                            //savOne.AccountBalance -= withdrawl;
+                            savOne.WithdrawBalance();
                             savOne.PrintBalance();
                             Console.WriteLine("");
                         }

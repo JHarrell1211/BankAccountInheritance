@@ -15,13 +15,13 @@ namespace BankAccount_InheritanceAndPolymorphism
         public double MinBalance
         {
             get { return this.minBalance; }
-            set { this.minBalance = value; }
+            //set { this.minBalance = value; }
         }
 
         //Constructors
-        public SavingsAccount(double minBalance):base (4384.74, 45672301,"Savings" )
+        public SavingsAccount():base (4384.74, 45672301,"Savings" )
         {
-            this.minBalance = minBalance;
+            minBalance = 100;
         }
 
 
@@ -41,5 +41,14 @@ namespace BankAccount_InheritanceAndPolymorphism
             base.PrintBalance();
         }
 
+        public override double DepositBalance()
+        {
+            return base.DepositBalance();
+        }
+
+        public override double WithdrawBalance()
+        {
+            return base.WithdrawBalance();
+        }
     }
 }

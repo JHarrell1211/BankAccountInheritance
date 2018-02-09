@@ -12,26 +12,36 @@ namespace BankAccount_InheritanceAndPolymorphism
         private double accountBalance;
         private int accountNumber;
         private string accountType;
+        private double deposit;
+        private double withdraw;
 
         //properties
         public double AccountBalance
         {
             get { return this.accountBalance; }
-            set { this.accountBalance = value; }
         }
 
         public int AccountNumber
         {
             get { return this.accountNumber; }
-            set { this.accountNumber = value; }
         }
 
         public string AccountType
         {
             get { return this.accountType; }
-            set { this.accountType = value; }
         }
         
+        public double Withdraw
+        {
+            get { return this.withdraw; }
+            set { this.withdraw = value; }
+        }
+
+        public double Deposit
+        {
+            get { return this.deposit; }
+            set { this.deposit = value; }
+        }
         //Constructor
         public Account()
         {
@@ -47,6 +57,17 @@ namespace BankAccount_InheritanceAndPolymorphism
         public virtual void PrintBalance()
         {
             Console.WriteLine("Your account balance is " + accountBalance);
+        }
+        public virtual double DepositBalance()
+        {
+            accountBalance += deposit;
+            return accountBalance;
+        }
+
+        public virtual double WithdrawBalance()
+        {
+            accountBalance -= withdraw;
+            return accountBalance;
         }
 
         public abstract int PrintAccountNum();
